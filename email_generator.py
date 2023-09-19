@@ -1,6 +1,6 @@
 import os
 import uvicorn
-from langchain import HuggingFacePipeline
+from langchain.llms.huggingface_pipeline import HuggingFacePipeline
 from langchain import PromptTemplate, LLMChain
 from transformers.utils.hub import move_cache
 from ctransformers import AutoModelForCausalLM, AutoTokenizer
