@@ -5,3 +5,5 @@ ctransformers
 pytorch-lightning
 uvicorn
 requests
+mlflow==2.5.0
+pydantic==1.8
