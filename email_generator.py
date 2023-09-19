@@ -10,8 +10,12 @@ from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from typing import List
 import nest_asyncio
+from pydantic import BaseModel,model_validator,ValidationError,root_validator
+from typing import Any, Dict, List, Optional, Type, TypeVar, Union
+from abc import ABC
+import nest_asyncio
 from fastapi.middleware.cors import CORSMiddleware
-from pytorch_lightning import LightningModule, Trainer
+
 # from flask import Flask, request, jsonify
 import requests
 
@@ -34,6 +38,12 @@ def setup_model():
 
 llm = setup_model()
 # Define a Pydantic model for request data (input command)
+class BasePromptTemplate(BaseModel):
+    @root_validator(pre=True,skip_on_failure=True)
+    def validate_variables(cls, values):
+        if not values.get('template'):
+            return values
+        return values
 class EmailRequest(BaseModel):
     client_email: str
     client_name: str
