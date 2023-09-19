@@ -7,7 +7,6 @@ from ctransformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import pipeline as hf_pipeline
 from huggingface_hub import HfApi
 from fastapi import FastAPI, HTTPException, Request
-from pydantic import BaseModel
 from typing import List
 import nest_asyncio
 from pydantic import BaseModel,model_validator,ValidationError,root_validator
@@ -15,9 +14,6 @@ from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 from abc import ABC
 import nest_asyncio
 from fastapi.middleware.cors import CORSMiddleware
-
-# from flask import Flask, request, jsonify
-import requests
 
 # Here we Setup the Model which includes [Model, Tokenizer, Pipeline] #and End the email with {signature}.
 
