@@ -1,6 +1,6 @@
 fastapi
 transformers
-langchain
+langchain>=0.0.268
 ctransformers
 pytorch-lightning
 uvicorn
